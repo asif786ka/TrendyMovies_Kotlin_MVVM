@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="series"
+            type="com.android.asif.llc.kotlin.trendymovies.android.model.tv.TvSeries" />
+
+        <variable
+            name="clickListener"
+            type="com.android.asif.llc.kotlin.trendymovies.android.adapter.series.SeriesClickListener" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:onClick="@{()->clickListener.onClick(series)}"
+        app:cardElevation="8dp"
+        app:cardCornerRadius="24dp"
+        app:cardPreventCornerOverlap="true">
+
+        <ImageView
+            android:id="@+id/series_image"
+            poster="@{series.fullPosterPath}"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/image_height"
+            android:contentDescription="@string/series_poster"
+            android:scaleType="centerCrop"
+            tools:src="@drawable/tv_poster" />
+
+    </androidx.cardview.widget.CardView>
+
+
+</layout>
